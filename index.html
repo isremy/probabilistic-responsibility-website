@@ -186,10 +186,20 @@
         <h2 class="title is-3">Experiments</h2>
         <div class="content has-text-justified">
         <div class="body">
-          <img poster="" src="./static/images/est_gamma_v_x_continuous(1).png" alt="MY ALT TEXT"/>
+          <div class="columns is-mobile is-vcentered">
+            <div class="column">
+              <img src="./static/images/true_gamma_v_x.png" alt="true gamma_v_x"/>
+            </div>
+            <div class="column">
+              <img src="./static/images/est_gamma_v_x_continuous.png" alt="est gamma_v_x continuous"/>
+            </div>
+            <div class="column">
+              <img src="./static/images/est_u_v_true_continuous.png" alt="est_u_v_true_continuous"/>
+            </div>
+          </div>
           <div class="subtitle has-text-centered">
             <p>
-              We validate our responsibility autoencoder works on a synthetic dataset with a multimodal responsibility distribution.
+              We validate our responsibility autoencoder works on a synthetic dataset with a multimodal responsibility distribution. In the above figure, we can see that our model is able to learn a distribution over responsibility allocations (middle) that closely matches the true distribution (left), which in turn leads to accurate predictions of the induced controls (right).
             </p>
           </div>
         </div>
