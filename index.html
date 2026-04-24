@@ -58,7 +58,7 @@
               <span class="author-block">
                 <a href="https://isremy.github.io" target="_blank">Isaac Remy<sup>1</sup></a>,</span>
                 <span class="author-block">
-                  <a>Caleb Chang<sup>1</sup></a>,</span>
+                  Caleb Chang<sup>1</sup>,</span>
                   <span class="author-block">
                     <a href="http://faculty.washington.edu/kymleung/" target="_blank">Karen Leung<sup>1,2</sup></a>
                   </span>
@@ -166,11 +166,11 @@
         <div class="content has-text-justified">
 
         <div class="body">
-          <img style="display: block; margin-left: auto; margin-right: auto;" poster="" src="static/images/cbf_filter.png" alt="MY ALT TEXT"/>
+          <img style="display: block; margin-left: auto; margin-right: auto;" poster="" src="static/images/responsibility_cvae.png" alt="MY ALT TEXT"/>
             <!-- Your video here -->
           <div class="subtitle has-text-centered">
             <p>
-              We define <em>responsibility</em> as being how much each agent contributes to a shared control barrier function (CBF) safety constraint, and given the agents' desired control, we can solve for the safe control using a quadratic program (QP). With advances in differentiable optimization, we can then learn the responsibility allocations that solve this QP and infer, for a given state, the responsibility each agent has in satisfying the CBF constraint.
+              Since we do not have access to ground-truth responsibility labels, we leverage a differentiable optimization layer to learn a mapping from responsibility allocations to induced controls, which <em>are</em> available. We then learn a probabilistic model over responsibility allocations in the latent space of a conditional variational autoencoder.
             </p>
           </div>
         </div>
@@ -185,13 +185,21 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Experiments</h2>
         <div class="content has-text-justified">
-
         <div class="body">
-          <img poster="" src="static/images/gamma_trajectory(1).png" alt="MY ALT TEXT"/>
+          <img poster="" src="est_gamma_v_x_continuous(1)" alt="MY ALT TEXT"/>
+          <div class="subtitle has-text-centered">
+            <p>
+              We validate our responsibility autoencoder works on a synthetic dataset with a multimodal responsibility distribution.
+            </p>
+          </div>
+        </div>
+        <div class="body">
+          <img poster="" src="scene2_map_gamma_0-1_0-5_0-2.gif" alt="MY ALT TEXT"/>
+          <img poster="" src="scene2_map_gamma_0-1_0-5_1-5.gif" alt="MY ALT TEXT"/>
             <!-- Your video here -->
           <div class="subtitle has-text-centered">
             <p>
-              We show our approach can work on N agents using synthetically generated data, and train a neural network to infer responsibilities for a traffic weaving scenario.
+              We scale up our autoencoder architecture using transformers and train it on the INTERACTION dataset, which consists of real-world driving data. We find that our method not only achieves strong predictive performance but also provides interpretable insights, through the lens of responsibility, into patterns of multi-agent interaction. Here we can see cases of multi-modal responsibility allocations for the agents, whose pair-wise responsibilities are shown on the right.
             </p>
           </div>
         </div>
